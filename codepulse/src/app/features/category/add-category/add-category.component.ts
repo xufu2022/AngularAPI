@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { AddCategoryRequest } from '../models/add-category-request.model';
-import { HttpClient } from '@angular/common/http';
 import { CategoryService } from '../services/category.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-category',
@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 export class AddCategoryComponent {
   model:AddCategoryRequest;
   private addCategorySubscribtion?: Subscription;
-  constructor(private categoryService:CategoryService){
+  constructor(private categoryService:CategoryService, private router: Router){
     this.model={
       name:'fu',
       urlHandle:''
@@ -21,11 +21,10 @@ export class AddCategoryComponent {
   onFormSubmit() {
     console.log(this.model);
     this.addCategorySubscribtion = this.categoryService.addCategory(this.model)
-    // this.addCategorySubscribtion = this.categoryService.addCategory(this.model)
     .subscribe({
       next: (response) => {
         console.log('this is success')
-        //this.router.navigateByUrl('/admin/categories');
+        this.router.navigateByUrl('/admin/categories');
       }
      })
   }
