@@ -14,7 +14,7 @@ export class AddCategoryComponent {
   private addCategorySubscribtion?: Subscription;
   constructor(private categoryService:CategoryService, private router: Router){
     this.model={
-      name:'fu',
+      name:'',
       urlHandle:''
     }
   }
