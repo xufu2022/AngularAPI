@@ -9,6 +9,7 @@
     ng g c features/category/add-category --dry-run
     ng g s features/category/services/category --dry-run
     ng g environments --dry-run
+    ng g c features/category/edit-category --dry-run
 
 ## Async Pipe
 
